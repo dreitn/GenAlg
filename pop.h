@@ -48,5 +48,4 @@ class pop {
     }
 };
 
-//int Something::s_value = 1; // initializer
-
+ind* pop::best = nullptr;
