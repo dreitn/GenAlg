@@ -18,15 +18,17 @@ class ind {
             this->fit = fitness(dna);
         }
     };
-
+    int * get_dna() {
+        return  this->dna;
+    }
     int get_fitness() {
-        return fit;
+        return this->fit;
     }
     void set_fitness(int fit) {
         this->relative_fitness=fit;
     }
     float get_relfitness () {
-        return relative_fitness;
+        return this->relative_fitness;
     }
     void set_relfitness (float relfit) {
         this->relative_fitness = relfit;

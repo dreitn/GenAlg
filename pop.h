@@ -19,7 +19,7 @@ class pop {
         }
         int temp_bestfitness = best->get_fitness();
         for (int i = 0; i < n; i++) {
-            Induviduen[i].set_relfitness(temp_bestfitness/Induviduen[i].get_fitness());                                // Set relative Fitness to every single Induviduum
+            Induviduen[i].set_relfitness(temp_bestfitness/Induviduen[i].get_fitness());                                  // Set relative Fitness to every single Induviduum
         }
    };
 
@@ -42,10 +42,33 @@ class pop {
     }
     void pair () {
 
+        int * dna = buffer[i].get_dna();
+        int * dna = buffer[i+1].get_dna();
+
+        int number = rand()%8;
+
+        for (int i = 0; i < number; i++) {
+            buffer[i] = dna[i];
+        }
+        for (int i = number; i < 8; i++){
+            buffer[i] = dna[i];
+        }
+
     }
-    void mutiere () {
+    void mutiere (int p = 2) {
         for (int i = 0; i < n; i++);
+
+        ind selected_ind = buffer[i];
+
+        int * dna = selected_ind.get_dna();
+            for (int i = 0; i < 8; i++) {
+                if (p < rand()%100) {
+                    (50 < rand()%100) ? dna[i] : dna[i];
+                }
+            }
+        if (buffer[i].get_fitness() < dna.get_fitness()) { buffer[i] = dna };
     }
+    delete[] buffer;
 };
 
 ind* pop::best = nullptr;
