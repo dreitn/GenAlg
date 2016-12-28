@@ -4,23 +4,29 @@
 #include "pop.h"            // Class Population
 using namespace std;
 
-// int solution [] {7,3,0,2,5,1,6,4};
+
 
 int main() {
-    // Initialsisiere Population, Parameter für Anzahl der Induviduuen
-    pop *  Population = new pop(1);
-
+    pop *  Population = new pop(200);
+    int solution [] {7,3,0,2,5,1,6,4};
     int probiere [] {7,3,4,2,5,1,6,4};
-    ind test;
-    test.fitness(probiere);
+    ind * test = new ind(probiere);
+    test->calfit();
+    cout << "Fitness: " << test->get_fitness() << endl;
+
+
     int durchl = 200;
-    // while (Population->get_best() || 0 >  --durchl) {
-        //select(P);
-        //pair(pop; new pop);
-        //mutate(Population);
-        //durchl--;
-    //}
-    //cout << best.pop;
+    while (Population->get_best_fitness()) {
+        cout << Population->get_best_fitness() << "\n";
+        Population->select();
+        Population->pair();
+
+        Population->mutiere();
+        --durchl;
+        cout << "Durchlaefe: " << durchl << "\n";
+    }
+
+    Population->get_best()->print();
 
     return 0;
 }
