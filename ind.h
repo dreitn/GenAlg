@@ -49,7 +49,7 @@ public:
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) { if (i != j) {
                     diff = (i+1)-(j+1);
-                    if (dna[i] + diff == dna[i] || dna[j] == dna[i] || dna[i] - diff == dna[i]) fit--;
+                    if (dna[j] + diff == dna[i] || dna[j] == dna[i] || dna[j] - diff == dna[i]) fit--;
                     }
                 }
             }
@@ -62,13 +62,13 @@ public:
         for (int i = 0; i < 8; i++) {
             std::cout << dna[i] << " ";
         }
-        std::cout << "fit: " << fit << std::endl;
+        std::cout << "fit: ";
+            fit ? std::cout << fit << std::endl : std::cout << "Optimal" << std::endl;
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 (dna[i] == j) ? std::cout << " + " : std::cout << " . ";
                 if (j == 7) std::cout << std::endl;
-
             }
         }
     }

@@ -16,6 +16,7 @@ int main() {
 
 
     int durchl = 200;
+    double average_fitness = 0;
     while (Population->get_best_fitness()) {
         cout << Population->get_best_fitness() << "\n";
         Population->select();
@@ -25,7 +26,7 @@ int main() {
         --durchl;
         cout << "Durchlaefe: " << durchl << "\n";
     }
-
+    //Population->print();
     Population->get_best()->print();
 
     return 0;

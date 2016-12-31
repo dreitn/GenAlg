@@ -35,7 +35,7 @@ public:
     };
 
     int get_best_fitness() {
-        return (best->get_fitness());
+        return best->get_fitness();
     }
 
     static ind *get_best() {
@@ -74,12 +74,12 @@ public:
 
     void pair() {                                                                                                       // Generiert aus den (Eltern) Induviduen im buffer 2 Kind Induvidiuen
 
-        int * temp_parentA; int parentA[8] {0};
-        int * temp_parentB; int parentB[8] {0};
+        int * temp_parentA; int parentA[8];
+        int * temp_parentB; int parentB[8];
 
         for (int i = 0; i < 200; i ++) {
             temp_parentA = buffer[i].get_dna();
-            temp_parentB = buffer[i + 1].get_dna();
+            temp_parentB = buffer[(i + 1) % 200].get_dna();
                 for (int j = 0; j < 8; j++) {
                     parentA[j] = temp_parentA[j];
                     parentB[j] = temp_parentB[j];
@@ -89,20 +89,18 @@ public:
 
             int dna_bufferA [8];
 
-            for (int i = 0; i < number; i++) {
+            for (int i = 0; i < number; i++)
                 dna_bufferA[i] = parentA[i];
-                            }
-            for (int i = number; i < 8; i++) {
+
+            for (int i = number; i < 8; i++)
                 dna_bufferA[i] = parentB[i];
 
-            }
             buffer[i].set_dna(dna_bufferA);
-
         }
+
         for (int i = 0; i < 200; i++) {
             buffer[i].calfit();
         }
-
     }
 
     void mutiere(int p = 2) {                                                                                           // Variiert die Induvidien aus dem buffer/Jedoch übernimmt nur positive dna änderungen
@@ -135,7 +133,7 @@ public:
     }
     void print() {
         for (int i = 0; i < 200; i++){
-            std::cout << "i: " << i << "\t";
+            std::cout << "i: " << i << " ";
             Induviduen[i].print();
         }
     }
