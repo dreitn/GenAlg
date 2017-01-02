@@ -133,7 +133,6 @@ public:
              << this->get_average() << "\n";
     }
 };
-
 ind* pop::best = nullptr;
 
 #endif //GENALG_POP_H

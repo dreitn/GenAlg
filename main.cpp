@@ -16,11 +16,11 @@ int main() {
     int durchl = 0;
 
     while (Population->get_best_fitness() && durchl < 200) {
-            Population->select();
+        Population->select();
         Population->pair();
         Population->mutiere();
-        ++durchl;
 
+        ++durchl;
         if (debug) Population->debug_info(durchl);
     }
 
