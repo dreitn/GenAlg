@@ -18,14 +18,14 @@ public:
 
         for (int i = 0; i < pop_size; i++) {
             if (Induviduen[i].get_fitness() > best->get_fitness())
-                best = &Induviduen[i];                                                                 // Set ind * best = best fitness in Population
+                best = &Induviduen[i];                                                                                  // Set ind * best = best fitness in Population
         }
 
-        double temp_bestfitness = (best->get_fitness());                                                // Besser "double" für die folgende Division
+        double temp_bestfitness = (best->get_fitness());                                                                // Besser "double" für die folgende Division
 
         for (int i = 0; i < size; i++) {
             Induviduen[i].set_relfitness(temp_bestfitness /
-                                         Induviduen[i].get_fitness());                                  // Set relative Fitness to every single Induviduum
+                                         Induviduen[i].get_fitness());                                                  // Set relative Fitness to every single Induviduum
         }
     };
 
@@ -47,7 +47,7 @@ public:
 
     void select() {                                                                                                     // Wählt Induvidien nach relativer fitess aus und kopiert in den buffer
 
-        if (!buffer) buffer = new ind[size];                                                                                          // Sollte "leere" Induviduen erstellen, nicht den Standardkonstuktor verwernden!
+        if (!buffer) buffer = new ind[size];                                                                            // Sollte "leere" Induviduen erstellen, nicht den Standardkonstuktor verwernden!
 
         for (int i = 0, j = 0; j < size; i++) {
             if (rand() % 100 < (Induviduen[i % size].get_relfitness() * 100)) {

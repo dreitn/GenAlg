@@ -49,7 +49,7 @@ public:
         this->relative_fitness = relfit;
     }
     void dna_plus(int i) {
-        if (dna[i] < 8) dna[i] ++;
+        if (dna[i] < 7) dna[i] ++;
     }
 
     void dna_minus(int i) {
@@ -67,6 +67,7 @@ public:
                     }
                 }
             }
+        fit /= 2;
         };
 
     void print() {

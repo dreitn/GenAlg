@@ -9,9 +9,8 @@ using namespace std;
 
 int main() {
     srand(time(0));
-    bool debug = false;
+    constexpr bool debug = false;
     pop *  Population = new pop(200);
-
 
     int durchl = 0;
 
